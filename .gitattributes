@@ -1,0 +1,11 @@
+# WAJIB: paksa LF (Unix line ending) untuk semua shell script.
+# Kalau file ini di-edit/di-save dari Windows (Notepad, PowerShell, VS Code
+# tanpa setting eol), defaultnya CRLF -- dan bash di Raspberry Pi/Linux akan
+# gagal parse file dengan CRLF (error "$'\r': command not found" atau shebang
+# tidak dikenali). Baris di bawah ini bikin git otomatis normalize ke LF
+# setiap kali file di-commit, apa pun OS/editor yang dipakai.
+*.sh text eol=lf
+
+# File biner -- jangan disentuh git text-conversion sama sekali.
+*.deb binary
+*.whl binary
